@@ -1,4 +1,87 @@
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(58, 61, 64, 255) 0%,
+    rgba(106, 124, 142, 255) 35%,
+    rgba(131, 172, 220, 255) 100%
+  );
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8rem 15%;
+}
+
 h1 {
-    text-align: center;
-    text-transform: uppercase;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+form {
+  margin: 2rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  height: 3rem;
+  width: 20rem;
+  margin: 0.5rem 0 1rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+input[type="submit"] {
+  color: #fff;
+  background-color: #506c9c;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+  vertical-align: middle;
+}
+
+p {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+p:nth-of-type(1) {
+  font-size: 0.75rem;
+  display: inline-block;
+  justify-content: space-between;
+}
+
+p:nth-of-type(3) {
+  overflow: hidden;
+}
+
+p:nth-of-type(3):before,
+p:nth-of-type(3):after {
+  height: 1px;
+  width: 50%;
+  content: "";
+  border-bottom: 1px solid #000;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+p:nth-of-type(3):before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+p:nth-of-type(3):after {
+  left: 0.5em;
+  margin-right: -50%;
 }

@@ -1,11 +1,35 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Login.css";
+import jwt_decode from "jwt-decode";
 
 function Login() {
+  const [user, setUser] = useState({});
+
+  function handleCallbackResponse(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+    var userObject = jwt_decode(response.credential);
+    console.log(userObject);
+    setUser(userObject);
+    document.getElementById("google-login").hidden = true;
+  }
+
+  function handleSignOut(event) {
+    setUser({});
+    document.getElementById("google-login").hidden = false;
+  }
+
+  useEffect(() => {
+    /*global google*/
+    google.accounts.id.initialize({client_id: "1071041387259-2kf53ndccj9q49i3iukrl235or4kbhgd.apps.googleusercontent.com", callback: handleCallbackResponse});
+
+    google.accounts.id.renderButton(document.getElementById("google-login"), { theme: "outline", size: "large", width: 275});
+}, [])
+
+// If we have no user: sign in button
+// If we have a user: show the log out button
+
   return (
     <div>
-      <script src="https://accounts.google.com/gsi/client" async defer></script>
-
       <h1>Login</h1>
 
       <form action="">
@@ -26,8 +50,19 @@ function Login() {
           <a href="/">Sign Up</a>
         </div>
         <div className="border-line">OR</div>
-        <button className="google">Sign in with Google</button>
-        <button className="facebook">Sign in with Facebook</button>
+    
+        <div id="google-login"></div>
+        { Object.keys(user).length !== 0 &&
+          <button onClick={(e) => handleSignOut(e)}>Sign Out</button>
+        }
+        { user &&
+          <div>
+            {/* Displays the user profile image and name*/}
+            <img src={user.picture}></img>
+            <h3>{user.name}</h3>
+          </div>
+        }
+        {/* <button id="facebook"></button> */}
       </form>
     </div>
   );

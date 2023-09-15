@@ -1,10 +1,6 @@
 body {
-  background: linear-gradient(
-    0deg,
-    #FFFBF0,
-    #F4DEBD
-  );
-  background-attachment: fixed; /*both background attachment and repeat prevents gradient background from cutting off at the bottom*/ 
+  background: linear-gradient(0deg, #fffbf0, #f4debd);
+  background-attachment: fixed; /*both background attachment and repeat prevents gradient background from cutting off at the bottom*/
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
@@ -29,7 +25,8 @@ label {
 }
 
 /* first 2 labels */
-form > label:first-child, label:nth-child(n+2) {
+form > label:first-child,
+label:nth-child(n + 2) {
   font-weight: bold;
 }
 
@@ -39,14 +36,16 @@ input {
   border-radius: 0.5rem;
 }
 
-input[type="email"], input[type="text"] {
-  background-color: #FFFBF0;
+input[type="email"],
+input[type="text"] {
+  background-color: #fffbf0;
   height: 3rem;
   width: 20rem;
   margin: 0.5rem 0 1rem 0;
 }
 
-input[type="email"]:focus, input[type="text"]:focus {
+input[type="email"]:focus,
+input[type="text"]:focus {
   background-color: transparent;
   border-bottom: 1px solid #000;
   border-radius: 0;
@@ -68,7 +67,7 @@ input[type="submit"]:hover {
 }
 
 input[type="checkbox"] {
-  background-color: #FFFBF0;
+  background-color: #fffbf0;
   appearance: none;
   -webkit-appearance: none;
   border-radius: 5px;
@@ -133,16 +132,19 @@ input[type="checkbox"]:after {
   margin-right: -50%;
 }
 
+.border-line,
+.new-user {
+  text-align: center;
+  margin: 1rem 0;
+}
+
 a {
   color: #907c6c;
   font-weight: bold;
 }
 
-div:not(:nth-of-type(1)) {
-  text-align: center;
-  margin: 1rem 0;
-}
-
-button {
+#google-login {
   margin: 0.5rem 0 1rem 0;
+  display: grid;
+  justify-content: center;
 }

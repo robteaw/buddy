@@ -1,11 +1,11 @@
 body {
-  background: rgb(2, 0, 36);
   background: linear-gradient(
     0deg,
-    rgba(58, 61, 64, 255) 0%,
-    rgba(106, 124, 142, 255) 35%,
-    rgba(131, 172, 220, 255) 100%
+    #FFFBF0,
+    #F4DEBD
   );
+  background-attachment: fixed; /*both background attachment and repeat prevents gradient background from cutting off at the bottom*/ 
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
   margin: 0 auto;
@@ -25,63 +25,124 @@ form {
 }
 
 label {
+  color: #907c6c;
+}
+
+/* first 2 labels */
+form > label:first-child, label:nth-child(n+2) {
   font-weight: bold;
 }
 
 input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+input[type="email"], input[type="text"] {
+  background-color: #FFFBF0;
   height: 3rem;
   width: 20rem;
   margin: 0.5rem 0 1rem 0;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+}
+
+input[type="email"]:focus, input[type="text"]:focus {
+  background-color: transparent;
+  border-bottom: 1px solid #000;
+  border-radius: 0;
+  outline: none;
 }
 
 input[type="submit"] {
   color: #fff;
-  background-color: #506c9c;
+  background-color: #907c6c;
   font-size: 1.5rem;
   font-weight: bold;
   border: none;
+  margin-top: 15px;
   cursor: pointer;
 }
 
+input[type="submit"]:hover {
+  background-color: #7e5f46;
+}
+
 input[type="checkbox"] {
-  transform: scale(1.5);
+  background-color: #FFFBF0;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
   vertical-align: middle;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: 0.15s;
 }
 
-p {
-  text-align: center;
-  margin: 1rem 0;
+input[type="checkbox"]:checked {
+  color: #000;
 }
 
-p:nth-of-type(1) {
+input[type="checkbox"]:after {
+  color: #000;
+  font-size: 15px;
+  font-weight: 900;
+  content: "\2714";
+  display: none;
+}
+
+.checkbox {
   font-size: 0.75rem;
-  display: inline-block;
+  display: flex;
   justify-content: space-between;
+  margin: 0.5rem 0 1rem 0;
 }
 
-p:nth-of-type(3) {
+.checkbox label input {
+  margin-right: 5px;
+}
+
+.new-user label {
+  margin-right: 5px;
+}
+
+.border-line {
+  font-weight: bold;
   overflow: hidden;
 }
 
-p:nth-of-type(3):before,
-p:nth-of-type(3):after {
+.border-line:before,
+.border-line:after {
   height: 1px;
   width: 50%;
   content: "";
-  border-bottom: 1px solid #000;
+  border-bottom: 2px solid #000;
   display: inline-block;
   position: relative;
   vertical-align: middle;
 }
 
-p:nth-of-type(3):before {
+.border-line:before {
   right: 0.5em;
   margin-left: -50%;
 }
 
-p:nth-of-type(3):after {
+.border-line:after {
   left: 0.5em;
   margin-right: -50%;
+}
+
+a {
+  color: #907c6c;
+  font-weight: bold;
+}
+
+div:not(:nth-of-type(1)) {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+button {
+  margin: 0.5rem 0 1rem 0;
 }

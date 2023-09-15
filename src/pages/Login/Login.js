@@ -42,7 +42,7 @@ function Login() {
             <input type="checkbox" />
             Remember Me
           </label>{" "}
-          <a href="">Forget password?</a>
+          <a href="/">Forget password?</a>
         </div>
         <input type="submit" value="Sign In" />
         <div className="new-user">
@@ -58,7 +58,7 @@ function Login() {
         { user &&
           <div>
             {/* Displays the user profile image and name*/}
-            <img src={user.picture}></img>
+            <img src={user.picture} alt=""></img>
             <h3>{user.name}</h3>
           </div>
         }

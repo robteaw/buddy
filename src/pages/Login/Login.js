@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./Login.css";
 import jwt_decode from "jwt-decode";
-// import FacebookLogin from 'react-facebook-login';
 
 function Login() {
   // Google Login
@@ -29,17 +28,6 @@ function Login() {
 
 // If we have no user: sign in button
 // If we have a user: show the log out button
-
-// Facebook Login
-// const ReactFaceBookLogin = () => {
-//   const componentClicked = data => {
-//     console.log("data", data);
-//   }
-// }
-
-// const responseFacebook = (response) => {
-//   console.log(response);
-// }
 
   return (
     <div>
@@ -75,13 +63,6 @@ function Login() {
             <h3>{user.name}</h3>
           </div>
         }
-        {/* <button id="facebook"></button> */}
-        {/* <FacebookLogin
-        appId="1088597931155576"
-        autoLoad={true}
-        fields="name,email,picture"
-        // onClick={componentClicked}
-        callback={responseFacebook} /> */}
 
       </form>
     </div>
